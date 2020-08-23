@@ -4,5 +4,5 @@ import { Layout } from "antd";
 const { Header } = Layout;
 
 export default () => {
-  return <Header></Header>;
+  return <Header style={{ backgroundColor: "#FFF" }} />;
 };
