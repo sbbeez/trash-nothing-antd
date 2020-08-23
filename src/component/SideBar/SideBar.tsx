@@ -1,35 +1,36 @@
 import React from "react";
-import { NotificationOutlined } from "@ant-design/icons";
+import { NotificationOutlined, SendOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { useHistory } from "react-router-dom";
 import styles from "./sideBarStyle.module.scss";
+import { AppRoutes } from "../../route/type";
+import { useTranslation } from "react-i18next";
 const { Sider } = Layout;
 
 export default () => {
   const history = useHistory();
+  const { t } = useTranslation();
 
-  const onItemClick = (menuInfo: MenuInfo) => {
+  const onItemClick = (menuInfo: MenuInfo) =>
     history.push(menuInfo.key as string);
-  };
-  console.log(styles);
 
   return (
     <Sider collapsed={false} onCollapse={() => {}} collapsible width={250}>
-      <Menu mode="inline" className={styles.menuParent}>
+      <Menu className={styles.menuParent}>
         <Menu.Item
           onClick={onItemClick}
-          icon={<NotificationOutlined />}
-          key="posts"
+          icon={<SendOutlined />}
+          key={AppRoutes.POSTS}
         >
-          Posts
+          {t("POSTS")}
         </Menu.Item>
         <Menu.Item
           onClick={onItemClick}
           icon={<NotificationOutlined />}
-          key="groups"
+          key={AppRoutes.GROUPS}
         >
-          Groups
+          {t("GROUPS")}
         </Menu.Item>
       </Menu>
     </Sider>

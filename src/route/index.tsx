@@ -8,6 +8,8 @@ import {
 import { LayoutWrapper } from "../component";
 import NotFound from "./NotFound";
 import { Post, Group } from "../screen";
+import { AppRoutes } from "./type";
+import "../i18n";
 
 function App() {
   return (
@@ -15,14 +17,14 @@ function App() {
       <Router>
         <LayoutWrapper>
           <Switch>
-            <Route path="/posts">
+            <Route path={`/${AppRoutes.POSTS}`}>
               <Post />
             </Route>
-            <Route path="/groups">
+            <Route path={`/${AppRoutes.GROUPS}`}>
               <Group />
             </Route>
             <Route exact path="/">
-              <Redirect to="/posts" />
+              <Redirect to={`/${AppRoutes.POSTS}`} />
             </Route>
             <Route path="**">
               <NotFound />
