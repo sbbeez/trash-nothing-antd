@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { LayoutWrapper } from "../component";
 import NotFound from "./NotFound";
+import { Post, Group } from "../screen";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         <LayoutWrapper>
           <Switch>
             <Route path="/posts">
-              <p>Something here is a content</p>
+              <Post />
             </Route>
             <Route path="/groups">
-              <div>Users</div>
+              <Group />
             </Route>
             <Route exact path="/">
               <Redirect to="/posts" />

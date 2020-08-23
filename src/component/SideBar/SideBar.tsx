@@ -3,8 +3,8 @@ import { NotificationOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { MenuInfo } from "rc-menu/lib/interface";
 import { useHistory } from "react-router-dom";
+import styles from "./sideBarStyle.module.scss";
 const { Sider } = Layout;
-const { SubMenu } = Menu;
 
 export default () => {
   const history = useHistory();
@@ -12,20 +12,11 @@ export default () => {
   const onItemClick = (menuInfo: MenuInfo) => {
     history.push(menuInfo.key as string);
   };
+  console.log(styles);
 
   return (
-    <Sider
-      collapsed={false}
-      onCollapse={() => {}}
-      collapsible
-      width={250}
-      className="site-layout-background"
-    >
-      <Menu
-        mode="inline"
-        defaultSelectedKeys={["posts"]}
-        style={{ height: "100%", borderRight: 0 }}
-      >
+    <Sider collapsed={false} onCollapse={() => {}} collapsible width={250}>
+      <Menu mode="inline" className={styles.menuParent}>
         <Menu.Item
           onClick={onItemClick}
           icon={<NotificationOutlined />}
