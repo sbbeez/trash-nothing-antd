@@ -12,7 +12,7 @@ export interface Photo {
   blurhash: string;
 }
 
-export interface Post{
+export interface Post {
   outcome?: null;
   user_id: number;
   post_id: number;
