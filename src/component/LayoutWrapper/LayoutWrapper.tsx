@@ -14,7 +14,7 @@ export default ({ sider, header, children }: ILayoutWrapper) => {
       <Layout>
         {header ? header : <Header />}
         <Layout>
-          <Content>{children}</Content>
+          <Content className={styles.content}>{children}</Content>
         </Layout>
       </Layout>
     </Layout>
