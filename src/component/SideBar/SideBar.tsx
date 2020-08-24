@@ -32,7 +32,11 @@ export default () => {
           <h1 className={styles.logoHeading}>Trash Nothing</h1>
         )}
       </div>
-      <Menu className={styles.menuParent}>
+      <Menu
+        defaultActiveFirst={true}
+        activeKey={history.location.pathname.replace("/", "")}
+        className={styles.menuParent}
+      >
         <Menu.Item
           onClick={onItemClick}
           icon={<SendOutlined />}
