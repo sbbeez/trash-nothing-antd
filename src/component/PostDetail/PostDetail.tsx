@@ -25,7 +25,6 @@ export default (props: Post) => {
     {
       tab: `Photos (${props.photos ? props.photos.length : 0})`,
       key: "image",
-      disabled: props.photos && props.photos.length ? false : true,
     },
   ];
   return (
