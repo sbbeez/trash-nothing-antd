@@ -2,31 +2,32 @@ import React, { useState } from "react";
 import { Card } from "antd";
 import { Post } from "../../screen/Post/type";
 import DescriptionView from "../DescriptionView/DescriptionView";
-
-const tabList = [
-  {
-    tab: "Description",
-    key: "desc",
-  },
-  {
-    tab: "Photos",
-    key: "image",
-  },
-  {
-    tab: "User Details",
-    key: "user",
-  },
-];
+import PostmageList from "../PostmageList/PostmageList";
 
 export default (props: Post) => {
   const [activeTab, setActiveTab] = useState<string>("desc");
 
   const contentList: { [key: string]: JSX.Element } = {
     desc: <DescriptionView value={props.content} />,
-    image: <p>Display all images</p>,
+    image: <PostmageList photos={props.photos || []} />,
     user: <p>User Data will be fetched...</p>,
   };
 
+  const tabList = [
+    {
+      tab: "Description",
+      key: "desc",
+    },
+    {
+      tab: "User Details",
+      key: "user",
+    },
+    {
+      tab: `Photos (${props.photos ? props.photos.length : 0})`,
+      key: "image",
+      disabled: props.photos && props.photos.length ? false : true,
+    },
+  ];
   return (
     <Card
       style={{ width: "100%" }}
